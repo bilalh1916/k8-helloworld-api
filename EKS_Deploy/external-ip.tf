@@ -1,3 +1,5 @@
+### THIS WILL GET MY LOCAL IP
+
 data "http" "workstation-external-ip" {
   url = "http://ipv4.icanhazip.com"
 }

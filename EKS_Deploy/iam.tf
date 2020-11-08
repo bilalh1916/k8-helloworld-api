@@ -1,3 +1,5 @@
+### IAM ROLE FOR MASTER
+
 resource "aws_iam_role" "demo-cluster" {
   name = "eks-cluster-master"
 
@@ -28,7 +30,6 @@ resource "aws_iam_role_policy_attachment" "demo-cluster-AmazonEKSServicePolicy" 
   role = aws_iam_role.demo-cluster.name
 }
 
-# If no loadbalancer was ever created in this region, then this following role is necessary
 resource "aws_iam_role_policy" "demo-cluster-service-linked-role" {
   name = "service-linked-role"
   role = aws_iam_role.demo-cluster.name

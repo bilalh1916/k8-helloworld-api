@@ -1,3 +1,5 @@
+### OUTPUTS
+
 locals {
   kubeconfig = <<KUBECONFIG
 

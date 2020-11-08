@@ -1,3 +1,5 @@
+### THIS WILL CREATE VPC
+
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "2.59.0"

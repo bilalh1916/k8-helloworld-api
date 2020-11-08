@@ -1,4 +1,6 @@
-# workers
+### THIS WILL CREATE SECURITY GROUPS FOR WORKERS
+
+
 resource "aws_security_group" "demo-node" {
   name        = "eks-cluster"
   description = "Security group for all nodes in the cluster"

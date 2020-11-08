@@ -1,3 +1,5 @@
+### THIS WILL CREATE SECURITY GROUP FOR MASTER
+
 resource "aws_security_group" "demo-cluster" {
   name        = "eks-cluster"
   description = "Cluster communication with worker nodes"

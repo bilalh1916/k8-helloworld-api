@@ -1,3 +1,5 @@
+### THIS WILL CREATE WORKER NODE
+
 data "aws_ami" "eks-worker" {
   filter {
     name   = "name"
@@ -8,11 +10,6 @@ data "aws_ami" "eks-worker" {
   owners      = ["602401143452"] # Amazon
 }
 
-# EKS currently documents this required userdata for EKS worker nodes to
-# properly configure Kubernetes applications on the EC2 instance.
-# We utilize a Terraform local here to simplify Base64 encoding this
-# information into the AutoScaling Launch Configuration.
-# More information: https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html
 locals {
   demo-node-userdata = <<USERDATA
 #!/bin/bash
@@ -27,7 +24,7 @@ resource "aws_launch_configuration" "demo" {
   iam_instance_profile = aws_iam_instance_profile.demo-node.name
   image_id = data.aws_ami.eks-worker.id
   instance_type = "t2.large"
-  name_prefix = "terraform-eks-demo"
+  name_prefix = "eks-cluster"
   security_groups = [aws_security_group.demo-node.id]
   user_data_base64 = base64encode(local.demo-node-userdata)
 
@@ -41,20 +38,12 @@ resource "aws_autoscaling_group" "demo" {
   launch_configuration = aws_launch_configuration.demo.id
   max_size = 2
   min_size = 1
-  name = "terraform-eks-demo"
-  # TF-UPGRADE-TODO: In Terraform v0.10 and earlier, it was sometimes necessary to
-  # force an interpolation expression to be interpreted as a list by wrapping it
-  # in an extra set of list brackets. That form was supported for compatibilty in
-  # v0.11, but is no longer supported in Terraform v0.12.
-  #
-  # If the expression in the following list itself returns a list, remove the
-  # brackets to avoid interpretation as a list of lists. If the expression
-  # returns a single list item then leave it as-is and remove this TODO comment.
+  name = "eks-cluster"
   vpc_zone_identifier = module.vpc.public_subnets
 
   tag {
     key = "Name"
-    value = "terraform-eks-demo"
+    value = "eks-cluster"
     propagate_at_launch = true
   }
 

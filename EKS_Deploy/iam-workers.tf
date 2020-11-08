@@ -1,3 +1,5 @@
+### IAM ROLES FOR WORKER
+
 resource "aws_iam_role" "demo-node" {
   name = "eks-cluster-worker"
 
