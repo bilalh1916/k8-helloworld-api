@@ -1,4 +1,3 @@
-# outputs
 locals {
   kubeconfig = <<KUBECONFIG
 
