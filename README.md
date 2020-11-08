@@ -4,9 +4,9 @@ Deploy Hello World RESTful API endpoint running in Docker container to Kubernete
 
 _*PREREQUISITES*_
 
-1. Download kubectl
-2. Download aws-iam-authenticator
-3. Download Terraform
+1. Download Terraform
+2. Download awscli and configure authentication
+3. 
 
 _*Steps*_
 
