@@ -2,13 +2,9 @@
 Deploy Hello World RESTful API endpoint running in Docker container to Kubernetes Cluster
 
 
-_*PREREQUISITES*_
+_*STEPS*_
 
-1. Download Terraform
-2. Download awscli and configure authentication
-3. 
-
-_*Steps*_
-
-1. Terraform apply
-2. 
+1. Perform authentication configurations using aws configure
+2. Run shell script part1.sh
+3. Run shell script part2.sh
+4. Verify pods and nodes are all running
