@@ -22,8 +22,8 @@ Tf() {
     unzip terraform_0.13.5_linux_amd64.zip
     rm -rf terraform_0.13.5_linux_amd64.zip
     mv terraform /usr/local/bin
-   # terraform init
-   # terraform apply
+    terraform init
+    terraform apply
 }
 
 Kube
