@@ -1,7 +1,7 @@
 ### THIS WILL CREATE SECURITY GROUP FOR MASTER
 
 resource "aws_security_group" "demo-cluster" {
-  name        = "eks-cluster"
+  name        = "eks-cluster1"
   description = "Cluster communication with worker nodes"
   vpc_id      = module.vpc.vpc_id
 

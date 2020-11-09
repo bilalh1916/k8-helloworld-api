@@ -2,7 +2,7 @@
 
 
 resource "aws_security_group" "demo-node" {
-  name        = "eks-cluster"
+  name        = "eks-cluster2"
   description = "Security group for all nodes in the cluster"
   vpc_id      = module.vpc.vpc_id
 
